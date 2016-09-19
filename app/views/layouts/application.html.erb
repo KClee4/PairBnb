@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <%= render 'layouts/navbar' %>
   <div id="header">
     <% if signed_in? %>
       <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
