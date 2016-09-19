@@ -33,12 +33,10 @@
 
           <% elsif current_page?(sign_in_path) %>
           <% else %>
-         <p class="navbar-text navbar-right">Signed in as <%= link_to current_user.firstname,current_user%></p>
-         <ul class="nav navbar-nav navbar-right">
-          <li>
-          <%= link_to "Sign Out", sign_out_path, method: :delete %>
-          </li>
-          </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Sign Out", sign_out_path, method: :delete %></li>
+            </ul>
+            <p class="navbar-text navbar-right">Signed in as <%= link_to current_user.firstname,current_user, class: "current-user"%></p>
         <% end %>
 
       </div><!-- /.navbar-collapse -->
