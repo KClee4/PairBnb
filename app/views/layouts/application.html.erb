@@ -3,22 +3,19 @@
 <head>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"%>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Baloo+Bhaina" %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
+  <title>PairBnb | The greastest website ever....</title>
 
 </head>
 <body>
   <%= render 'layouts/navbar' %>
   
-  <div class="container">
-  <div id="flash">
-    <% flash.each do |key, value| %>
-      <div id="flash_<%= key %>"><%=h value %></div>
-    <% end %>
-  </div>
+
 
 
   <%= yield %>
-  </div>
+  
 </body>
 </html>

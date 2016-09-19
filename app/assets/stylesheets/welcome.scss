@@ -1,3 +1,33 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.main {
+	width:100%;
+	position: relative;
+	top: -72px;
+	height: 500px;
+	overflow: hidden;
+	img {
+		height: 500px !important;
+		width: 100%;
+		object-fit: cover;
+
+	}
+	#img1 {
+		object-position: 50% 85%;
+	}
+	#img2 {
+		object-position: 50% 85%;
+	}
+	#img3 {
+		object-position: 50% 0%;
+	}
+	.carousel-caption {
+		padding-bottom: 150px;
+		h1 {
+			font-size: 70px;
+			font-family: Baloo Bhaina;
+		}
+	}
+}
+
