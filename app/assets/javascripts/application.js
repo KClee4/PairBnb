@@ -15,3 +15,8 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+$(function() {
+	function updateTextInput(val) {
+    document.getElementById('textInput').value=val; 
+  }
+});

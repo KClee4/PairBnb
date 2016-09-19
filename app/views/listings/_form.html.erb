@@ -1,0 +1,7 @@
+<%= simple_form_for(@listing, html: { class: 'form-horizontal' }) do |f| %>
+	<%= f.input :title %>
+	<%= f.input :description %>
+	<%= f.input :price, :label => "Price (in RM)" %>
+
+	<%= f.button :submit %>
+<% end %>
