@@ -13,6 +13,9 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Listing",listings_path %></li>
+      </ul>
       <% if signed_out? and !current_page?(sign_in_path) %>
       <%= form_for :session, url: session_path, html: {class:"navbar-form navbar-right"} do |form| %>
         <div class="text-field form-group">
@@ -38,6 +41,7 @@
             </ul>
             <p class="navbar-text navbar-right">Signed in as <%= link_to current_user.firstname,current_user, class: "current-user"%></p>
         <% end %>
+
 
       </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

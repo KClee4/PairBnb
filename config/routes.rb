@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :listings
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -21,5 +22,6 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'welcome#index'
+   post "/", to: "listings#index"
 
 end

@@ -1,0 +1,15 @@
+<div class="container">
+	<%= form_tag("/", method: "post") do %>
+	  <%= label_tag(:price, "Price Range:") %>
+	  <%= number_field_tag 'price', nil, min: 1 %>
+	  <%= submit_tag("Search") %>
+	<% end %>
+	<%= link_to "Create new listing", new_listing_path if signed_in? %>
+	<% if @listings.present? %>
+		<div class="listing">
+		<% @listings.each do |list| %>
+			<p><%= link_to list.title,list %><%= content_tag(:span, "RM #{list.price}",class: "pull-right") %></p>
+		<% end %>
+	</div>
+	<% end %>
+</div>
