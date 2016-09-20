@@ -1,5 +1,10 @@
 <div class="container">
 	<h1><%= @listing.title %></h1>
+	<% if @listing.listing_images.any? %>
+	<% @listing.listing_images.each do |img| %>
+	<%= image_tag img.url %>
+	<% end %> 
+	<% end %>
 	<p><%= @listing.description %></p>
 	<p>RM <%= @listing.price %> per day</p>
 	<p>Tags: <%= @listing.tag_list.join(", ") %></p>

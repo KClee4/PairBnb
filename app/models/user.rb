@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   mount_uploader :profile_image, ProfileImageUploader
 
+
   def self.create_with_auth_and_hash(authentication,auth_hash)
     create! do |u|
       u.firstname = auth_hash["info"]["first_name"]

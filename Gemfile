@@ -17,7 +17,7 @@ gem 'omniauth-facebook'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
 gem 'acts-as-taggable-on', '~> 4.0'
-gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem "mini_magick"
 
 group :development, :test do
