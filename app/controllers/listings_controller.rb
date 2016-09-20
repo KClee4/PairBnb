@@ -3,8 +3,22 @@ class ListingsController < ApplicationController
   before_action :find_listing, only: [:show, :edit, :update, :destroy]
 
   def index
+
     if filter_params.any?
-      @listings = Listing.filter(filter_params)
+  
+      if filter_params[:min].present? && filter_params[:max].present?
+
+        @listings = Listing.price_range(filter_params[:min],filter_params[:max])
+
+      elsif filter_params[:min].present? && !filter_params[:max].present?
+
+        @listings = Listing.min_price(filter_params[:min])
+
+      elsif !filter_params[:min].present? && filter_params[:max].present?
+
+        @listings = Listing.max_price(filter_params[:max])
+      end
+        
     else
       @listings = Listing.all
     end
@@ -46,7 +60,7 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :price)
+    params.require(:listing).permit(:title, :description, :price, :tag_list)
   end
 
   def find_listing
@@ -54,7 +68,7 @@ class ListingsController < ApplicationController
   end
 
   def filter_params
-    params.permit(:price)
+    params.permit(:min, :max).reject { |x, y| y.empty? }
     
   end
 
