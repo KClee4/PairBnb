@@ -2,6 +2,7 @@
 	<h1><%= @listing.title %></h1>
 	<p><%= @listing.description %></p>
 	<p>RM <%= @listing.price %> per day</p>
+	<p>Tags: <%= @listing.tag_list.join(", ") %></p>
 	<%= link_to "Back", listings_path, class: "btn btn-default" %>
 	<% if signed_in? %>
 		<%= link_to "Edit", edit_listing_path(@listing), class: "btn btn-info"  %>

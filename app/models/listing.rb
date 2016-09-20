@@ -1,5 +1,6 @@
 class Listing < ActiveRecord::Base
   belongs_to :user
+  acts_as_taggable
 
   scope :price_range, ->(min, max) { where(price: min..max)}
   scope :min_price, ->(min) { where('price >= ?', min)}
