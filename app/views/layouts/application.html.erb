@@ -11,7 +11,17 @@
 </head>
 <body>
   <%= render 'layouts/navbar' %>
-  
+
+  <div class="container">
+  <% if flash.present? %>
+  <div class="alert alert-danger">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <% flash.each do |x, y| %>
+  <p> <%= y %></p>
+  <% end %>
+  </div>
+  <% end %>
+  </div>
 
 
 
