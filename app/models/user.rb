@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
+  
   include Clearance::User
   has_many :authentications, :dependent => :destroy
+
+  mount_uploader :profile_image, ProfileImageUploader
+
 
   def self.create_with_auth_and_hash(authentication,auth_hash)
     create! do |u|

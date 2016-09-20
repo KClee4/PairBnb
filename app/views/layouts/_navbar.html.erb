@@ -37,9 +37,19 @@
           <% elsif current_page?(sign_in_path) %>
           <% else %>
             <ul class="nav navbar-nav navbar-right">
+              <li>
+
+                <div class="round">
+                  <%= link_to current_user, class: "current-user" do %>
+                    <%= image_tag current_user.profile_image_url(:thumb), title: "Your Profile" %>
+                  <% end %>   
+                </div>
+
+              </li>
               <li><%= link_to "Sign Out", sign_out_path, method: :delete %></li>
             </ul>
-            <p class="navbar-text navbar-right">Signed in as <%= link_to current_user.firstname,current_user, class: "current-user"%></p>
+             
+             
         <% end %>
 
 

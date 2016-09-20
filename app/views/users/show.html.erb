@@ -1,0 +1,7 @@
+<div class="container">
+<%= image_tag @user.profile_image_url %>
+
+	<h1>Welcome back,<%= @user.firstname + " " + @user.lastname %></h1>
+	<%= link_to "edit", edit_user_path if @user == current_user  %>
+
+</div>
