@@ -3,6 +3,7 @@ class ListingsController < ApplicationController
   before_action :find_listing, only: [:show, :edit, :update, :destroy]
 
   def index
+    byebug
     if filter_params.any?
       @listings = Listing.filter(filter_params)
     else
@@ -54,7 +55,7 @@ class ListingsController < ApplicationController
   end
 
   def filter_params
-    params.permit(:price)
+    params.permit(:min, :max)
     
   end
 

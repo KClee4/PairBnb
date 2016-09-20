@@ -1,7 +1,9 @@
 <div class="container">
 	<%= form_tag("/", method: "post") do %>
-	  <%= label_tag(:price, "Price Range:") %>
-	  <%= number_field_tag 'price', nil, min: 1 %>
+	  <%= label_tag(:min, "Min:") %>
+	  <%= number_field_tag 'min', nil, min: 1 %>
+	  <%= label_tag(:max, "Max:") %>
+	  <%= number_field_tag 'max', nil, min: 1 %>
 	  <%= submit_tag("Search") %>
 	<% end %>
 	<%= link_to "Create new listing", new_listing_path if signed_in? %>
