@@ -16,6 +16,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
+gem 'acts-as-taggable-on', '~> 4.0'
 
 group :development, :test do
   gem 'byebug'
