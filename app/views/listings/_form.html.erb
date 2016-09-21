@@ -2,8 +2,9 @@
 	<%= f.input :listing_images, as: :file, input_html: { multiple: true } %>
 	<%= f.input :title %>
 	<%= f.input :description %>
+	<%= f.input :city , as: :select, :collection => [["Kuala Lumpur", "kl"]] %>
 	<%= f.input :price, :label => "Price (in RM)" %>
-	<%= f.input :tag_list, :label => "Tags (seperated with comma)" %>
+	<%= f.input :tag_list, :label => "Tags (seperated with comma)", input_html: { :value => @listing.tag_list.to_s } %>
 
 	<%= f.button :submit %>
 <% end %>

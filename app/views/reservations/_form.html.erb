@@ -1,0 +1,18 @@
+<%= form_for @reservation, url:listing_reservations_path, html:{ class: "reserve-form"} do |f| %>  
+	<div class="date-field">
+		<%= f.label text="Starts:" %>
+		<%= f.text_field :begin_date, :order => [:day, :month, :year], id: "dateFrom" %>
+	</div>
+	<div class="date-field">
+		<%= f.label text="Ends:" %>
+		<%= f.text_field :end_date,:order => [:day, :month, :year], id: "dateTo" %>
+	</div>
+
+	<div class="text-field">
+		<%= f.label text="Guest:" %>
+		<%= f.number_field :guest_count, in: 1..15 %> maximum 15 pax
+	</div>
+
+	<%= f.submit %>
+
+<% end %>

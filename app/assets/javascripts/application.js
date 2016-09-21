@@ -12,11 +12,32 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
 $(function() {
-	function updateTextInput(val) {
-    document.getElementById('textInput').value=val; 
-  }
+	$('#dateFrom, #dateTo').datepicker({
+	      beforeShow: customRange,
+	      dateFormat: "dd M yy",
+	  });
+
+	    function customRange(input) {
+	    if (input.id == 'dateFrom') {
+	        var minDate = new Date();
+	        minDate.setDate(minDate.getDate())
+	        return {
+	            minDate: minDate
+	        };
+	    }
+
+	    if (input.id == 'dateTo') {
+	        var minDate = new Date($('#dateFrom').val());
+	        minDate.setDate(minDate.getDate() + 1)
+	        return {
+	            minDate: minDate
+	        };
+	    }
+	    return {}
+	    }   
 });
