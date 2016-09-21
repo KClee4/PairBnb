@@ -22,22 +22,36 @@ $(function() {
 	      dateFormat: "dd M yy",
 	  });
 
-	    function customRange(input) {
-	    if (input.id == 'dateFrom') {
-	        var minDate = new Date();
-	        minDate.setDate(minDate.getDate())
-	        return {
-	            minDate: minDate
-	        };
-	    }
+    function customRange(input) {
+    if (input.id == 'dateFrom') {
+        var minDate = new Date();
+        minDate.setDate(minDate.getDate())
+        return {
+            minDate: minDate
+        };
+    }
 
-	    if (input.id == 'dateTo') {
-	        var minDate = new Date($('#dateFrom').val());
-	        minDate.setDate(minDate.getDate() + 1)
-	        return {
-	            minDate: minDate
-	        };
-	    }
-	    return {}
-	    }   
+    if (input.id == 'dateTo') {
+    	if ($('#dateFrom').val() == "") {
+    		var minDate = new Date()
+    		minDate.setDate(minDate.getDate() + 1) 
+    	}
+    	else {
+        var minDate = new Date($('#dateFrom').val());
+        minDate.setDate(minDate.getDate() + 1)        
+      }
+      return {
+            minDate: minDate
+        };
+    }
+    return {}
+    }
+    $( document ).ajaxComplete(function() {
+    	$('#dateFrom, #dateTo').datepicker({
+    	  beforeShow: customRange,
+    	  dateFormat: "dd M yy",
+    	});
+    });
+    
+  
 });
