@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="reservation">
+		<div class="row">
+			<div class="col-md-3">Title</div>
+			<div class="col-md-3">Start date</div>
+			<div class="col-md-3">End date</div>
+			<div class="col-md-3">Guest count</div>
+		</div>
+		<% if @reservations.any? %>
+			<div class="row">
+
+			<% @reservations.each do |res| %>
+				<%= link_to res.listing do %>
+					<div class="col-md-3">
+						<%= res.listing.title %>
+					</div>
+					<div class="col-md-3">
+						<%= res.begin_date %>
+					</div>
+					<div class="col-md-3">
+						<%= res.end_date %>
+					</div>
+					<div class="col-md-3">
+						<%= res.guest_count %>
+					</div>
+				<% end %> 
+			<% end %>
+			</div>
+		<% end %>
+	</div>
+</div>

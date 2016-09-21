@@ -1,7 +1,13 @@
 <div class="container">
-<%= image_tag @user.profile_image_url %>
-
-	<h1>Welcome back,<%= @user.firstname + " " + @user.lastname %></h1>
-	<%= link_to "edit", edit_user_path if @user == current_user  %>
+	<div class="row">
+		<div class="col-md-2 col-md-offset-1">
+			<%= image_tag @user.profile_image_url(:medium) %>
+		</div>
+		<div class="col-md-9">
+			<h1><%= @user.firstname + " " + @user.lastname %></h1>
+			<%= link_to "Edit", edit_user_path, class: "btn btn-primary" if @user == current_user  %>
+		</div>
+	</div>
+	
 
 </div>

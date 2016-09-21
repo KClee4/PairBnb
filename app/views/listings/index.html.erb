@@ -6,7 +6,8 @@
 	  <%= number_field_tag 'max', nil, min: 1 %>
 	  <%= submit_tag("Search") %>
 	<% end %>
-	<%= link_to "Create new listing", new_listing_path if signed_in? %>
+
+	<%= link_to "Create new listing", new_listing_path, class: "btn btn-default create-btn" if signed_in? %>
 	<% if @listings.present? %>
 		<div class="listing">
 			<div class="row">
@@ -14,8 +15,10 @@
 					<% lists.each do |list| %>
 						
 					
-					<div class="col-md-4">
-						<%= image_tag list.listing_images[0] %>
+					<div class="col-md-3 col-md-offset-1 listing-photo-frame">
+						<%= link_to list do  %>
+							<%= image_tag list.listing_images[0].url(:medium) if list.listing_images.any? %>
+						<% end %> 
 						<%= link_to list.title,list %>
 						<%= content_tag(:span, "RM #{list.price}") %>
 					</div>

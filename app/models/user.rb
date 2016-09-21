@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   
   include Clearance::User
   has_many :authentications, :dependent => :destroy
+  has_many :listings, :dependent => :destroy
+  has_many :reservations, :dependent => :destroy
 
   mount_uploader :profile_image, ProfileImageUploader
 
@@ -25,5 +27,7 @@ class User < ActiveRecord::Base
   def password_optional?
     true
   end
+
+  
 end
 

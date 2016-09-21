@@ -5,20 +5,13 @@ class ListingsController < ApplicationController
   def index
 
     if filter_params.any?
-  
       if filter_params[:min].present? && filter_params[:max].present?
-
         @listings = Listing.price_range(filter_params[:min],filter_params[:max])
-
       elsif filter_params[:min].present? && !filter_params[:max].present?
-
         @listings = Listing.min_price(filter_params[:min])
-
       elsif !filter_params[:min].present? && filter_params[:max].present?
-
         @listings = Listing.max_price(filter_params[:max])
       end
-        
     else
       @listings = Listing.all
     end
@@ -33,7 +26,7 @@ class ListingsController < ApplicationController
   end
 
   def create
-    @listing = Listing.new(listing_params)
+    @listing = current_user.listings.build(listing_params)
 
     if @listing.save
       redirect_to @listing, notice: "Listing successfully created"
@@ -55,6 +48,8 @@ class ListingsController < ApplicationController
 
 
   def destroy
+    @listing.destroy
+    redirect_to listings_path
   end
 
   private

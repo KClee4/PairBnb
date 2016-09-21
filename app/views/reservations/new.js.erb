@@ -1,0 +1,7 @@
+$(".reserve-btn").hide().after("<%= j render 'form' %>");
+$('#dateFrom, #dateTo').datepicker({
+  beforeShow: customRange,
+  dateFormat: "dd M yy",
+});
+
+

@@ -1,0 +1,9 @@
+<div class="container">
+	<% if @reservation.errors.any? %>
+		<% @reservation.errors.full_messages.each do |err| %>
+			<p><%= err %></p>
+			
+		<% end %>
+	<% end %>
+	<%= render "form" %>
+</div>

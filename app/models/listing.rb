@@ -1,5 +1,6 @@
 class Listing < ActiveRecord::Base
   belongs_to :user
+  has_many :reservations, dependent: :destroy
   acts_as_taggable
   mount_uploaders :listing_images, ListingImageUploader
 

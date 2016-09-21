@@ -2,15 +2,17 @@
 	<h1><%= @listing.title %></h1>
 	<% if @listing.listing_images.any? %>
 	<% @listing.listing_images.each do |img| %>
-	<%= image_tag img.url %>
+	<%= image_tag img.url(:medium) %>
 	<% end %> 
 	<% end %>
 	<p><%= @listing.description %></p>
 	<p>RM <%= @listing.price %> per day</p>
 	<p>Tags: <%= @listing.tag_list.join(", ") %></p>
 	<%= link_to "Back", listings_path, class: "btn btn-default" %>
-	<% if signed_in? %>
+	<% if signed_in? && @listing.user == current_user %>
 		<%= link_to "Edit", edit_listing_path(@listing), class: "btn btn-info"  %>
 		<%= link_to "Delete", @listing, method: "delete", data: { confirm: "Are you sure you want to delete????" }, class: "btn btn-danger" %>
-	<% end %>
+	<% elsif signed_in? %>
+		<%= link_to "Reserve!", {:controller => "reservations", :action => "new", :listing_id => @listing}, class: "reserve-btn btn btn-info", remote: true  %>
+	<% end %> 
 </div>
