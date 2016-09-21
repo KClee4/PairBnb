@@ -9,9 +9,21 @@
 	<%= link_to "Create new listing", new_listing_path if signed_in? %>
 	<% if @listings.present? %>
 		<div class="listing">
-		<% @listings.each do |list| %>
-			<p><%= link_to list.title,list %><%= content_tag(:span, "RM #{list.price}",class: "pull-right") %></p>
-		<% end %>
+			<div class="row">
+				<% @listings.each_slice(3).each do |lists| %>
+					<% lists.each do |list| %>
+						
+					
+					<div class="col-md-4">
+						<%= image_tag list.listing_images[0] %>
+						<%= link_to list.title,list %>
+						<%= content_tag(:span, "RM #{list.price}") %>
+					</div>
+							
+					<% end %>
+				<% end %>
+			</div>
 	</div>
 	<% end %>
+
 </div>
