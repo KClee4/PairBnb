@@ -12,6 +12,7 @@ class Reservation < ActiveRecord::Base
   def available_date
     if begin_date && end_date
     	errors.add(:end_date, "must be after start date") unless end_date > begin_date
+      errors.add(:begin_date, "must not before today") unless begin_date >= Date.today
     end
   end
 
@@ -20,10 +21,11 @@ class Reservation < ActiveRecord::Base
     	reservations = listing.reservations
     	reservations.each do |x|
     		if (begin_date..end_date).overlaps?(x.begin_date..x.end_date)
-    			errors.add(:end_date, "is chosen") 
+    			errors.add(:date, "is overlapped") 
     			break
     		end
     	end
     end
   end
+
 end

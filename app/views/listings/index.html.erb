@@ -1,9 +1,9 @@
 <div class="container">
 	<%= form_tag("/", method: "post") do %>
 	  <%= label_tag(:min, "Min:") %>
-	  <%= number_field_tag 'min', nil, min: 1 %>
+	  <%= number_field_tag 'min', nil, min: 1, id: "minPrice" %>
 	  <%= label_tag(:max, "Max:") %>
-	  <%= number_field_tag 'max', nil, min: 1 %>
+	  <%= number_field_tag 'max', nil, min: 1, id: "maxPrice"  %>
 	  <%= submit_tag("Search") %>
 	<% end %>
 
