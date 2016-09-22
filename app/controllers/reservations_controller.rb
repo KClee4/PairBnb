@@ -5,14 +5,20 @@ class ReservationsController < ApplicationController
 		@reservation = Reservation.new
 	end
 
+  
   def create
   	@listing = Listing.find(params[:listing_id])
   	@reservation = current_user.reservations.build(reserve_params)
   	@reservation.listing = @listing
-  	if @reservation.save
-      redirect_to @listing, notice: "Successfully reserved!"
+  	 respond_to do |format|
+     if @reservation.save
+      ReservationMailer.reservation_email(@reservation.listing.user, @reservation.user, @reservation.id).deliver_later
+      #ReservationJob.perform_now(@reservation.listing.user, @reservation.user, @reservation.id).deliver_now
+
+      format.html{ redirect_to(@listing, notice: "Successfully reserved!")}
     else
       render 'new'
+    end
     end
   end
 

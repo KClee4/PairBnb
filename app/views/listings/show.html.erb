@@ -8,6 +8,14 @@
 	<p><%= @listing.description %></p>
 	<p>RM <%= @listing.price %> per day</p>
 	<p>Tags: <%= @listing.tag_list.join(", ") %></p>
+	<p>Host by: <%= @listing.user.firstname + " " + @listing.user.lastname %>
+		<div class="round">
+	  <%= link_to @listing.user, class: "current-user" do %>
+	    <%= image_tag @listing.user.profile_image_url(:thumb), title: "Profile" %>
+	    <% end %> 
+	    </div>
+	</p>
+	
 	<%= link_to "Back", listings_path, class: "btn btn-default" %>
 	<% if signed_in? && @listing.user == current_user %>
 		<%= link_to "Edit", edit_listing_path(@listing), class: "btn btn-info"  %>
