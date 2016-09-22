@@ -12,7 +12,8 @@ class ReservationsController < ApplicationController
   	@reservation.listing = @listing
   	 respond_to do |format|
      if @reservation.save
-      ReservationMailer.reservation_email(@reservation.listing.user, @reservation.user, @reservation.id).deliver_now
+      ReservationMailer.reservation_email(@reservation.listing.user, @reservation.user, @reservation.id).deliver_later
+      #ReservationJob.perform_now(@reservation.listing.user, @reservation.user, @reservation.id).deliver_now
 
       format.html{ redirect_to(@listing, notice: "Successfully reserved!")}
     else

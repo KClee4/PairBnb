@@ -21,6 +21,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem "mini_magick"
 gem 'jquery-ui-rails'
 gem 'responders', '~> 2.0'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'byebug'
