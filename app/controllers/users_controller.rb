@@ -25,7 +25,7 @@ class UsersController < Clearance::UsersController
     
     if @user.update(user_params)
   
-      redirect_to @user, notice: "Successfully updated!"
+      redirect_to @user, notice: "Successful updated!"
     else
       render "edit"
     end
