@@ -29,6 +29,10 @@ class UsersController < Clearance::UsersController
     else
       render "edit"
     end
+
+    def booking_email
+
+    end
   end
 
   private
