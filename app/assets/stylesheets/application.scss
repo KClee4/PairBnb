@@ -16,18 +16,46 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@font-face {
+	font-family: Myriad;
+	src: url("MyriadPro-Regular.otf");
+}
+$purple: #9966ff;
 
-.navbar {
+.my-navbar {
+	// background-color: rgba(255,0,0,0.2);
+	background-color: transparent;
 	position: relative;
 	z-index: 2;
-	background: rgba(0,0,0,0);
+	height: 80px;
 	border: none;
+	
 	border-radius: 0;
-	a, li, p {
-		color: #353848 !important;
-		font-weight: bold;
-		text-shadow: 0px 0px 5px #fff;
+}
+.my-navbar__container {
+	z-index: 2;
+	display: flex;
+	height: 100%;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
+	div, ul {
+		height: 100%;
+	} 
+	ul {
+		list-style: none;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		box-sizing: border-box;
+		li {
+			margin-left: 25px;
+
+		}
+	}
+	a, li, p {
+		color: white !important;
+		font-family: Lato;
+		font-weight: 700;
 	}
 	p {
 		.current-user {
@@ -35,27 +63,75 @@
 		}
 	}
 }
-.round {
-	height: 36px;
-	width: 36px;
-	border-radius: 100%;
-	overflow: hidden;
-	margin-top: 6px;
-	margin-right: 15px;
-}
-.cta-btn {
-	width: 150px;
-	height: 60px;
-	background-color: transparent !important;
-	color: white;
-	font-size: 18px;
+.my-navbar__brand {
+	font-size: 26px;
 	font-family: Open Sans;
-	font-weight: bold;
-	padding-top: 12px;
-	border-radius:3px;
-	border: 2px white solid;
+	line-height: 80px;
+	font-weight: 700;
+	&:hover {
+		text-decoration: none;
+	}
 }
-.cta-btn:hover {
-	background-color: rgba(255,255,255,0.6) !important;
-	color: red !important;
+.my-navbar--left {
+	margin: 0;
+	min-width: 200px;
+	li {
+		line-height: 80px;
+	}
+	
+	a {
+		height: 100%;
+		display: block;
+		box-sizing: border-box;
+		&:hover {
+			text-decoration: none;
+			background-color: white;
+			color: rgba(0, 0, 0, 0.68) !important;
+
+		}
+	}
 }
+.my-navbar--right {
+	margin-left: auto;
+	li {
+		padding: none;
+	}
+	li:first-child {
+		&:hover {
+			background-color: rgba(255,255,255,0.68);
+		}
+	}
+	li:last-child {
+		&:hover {
+			background-color: #8950FA;
+		}
+	}
+	a {
+		display: block;
+		line-height: 38px;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+.my-navbar__btn {
+	width: 125px;
+	height: 38px;
+	text-align: center;
+	border-radius: 3px;
+}
+.my-navbar--signin {
+	background-color: rgba(255, 255, 255, 0.58);	
+}
+.my-navbar--signup {
+	margin-left: 45px;
+	background-color: $purple;
+}
+// .round {
+// 	height: 36px;
+// 	width: 36px;
+// 	border-radius: 100%;
+// 	overflow: hidden;
+// 	margin-top: 6px;
+// 	margin-right: 15px;
+// }

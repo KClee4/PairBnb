@@ -1,33 +1,56 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.main {
+.main-area {
 	width:100%;
 	position: relative;
-	top: -72px;
+	top: -80px;
+	z-index: 1;
 	height: 500px;
+	background-image: url("bg.jpg");
 	overflow: hidden;
-	img {
-		height: 500px !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	.grey {
+		position: absolute;
 		width: 100%;
-		object-fit: cover;
+		height: 500px;
+		z-index: 2;
+		background-color: rgba(0,0,0,0.45);
+	}
+}
+.main-area__jumbotron {
+	position: relative;
+	z-index: 3;
+	color: white;
+	text-align: center;
+	top: 40px;
+}
+.main-area__title {
+	font-family: Myriad;
+	font-size: 48px;
+}
+.main-area__description {
+	font-family: Myriad;
+}
+.main-area__cta {
+	margin-top: 40px;
+	width: 160px;
+	height: 50px;
+	background-color: #9966ff;
+	border: none;
+	border-radius: 3px;
 
-	}
-	#img1 {
-		object-position: 50% 85%;
-	}
-	#img2 {
-		object-position: 50% 85%;
-	}
-	#img3 {
-		object-position: 50% 0%;
-	}
-	.carousel-caption {
-		padding-bottom: 150px;
-		h1 {
-			font-size: 70px;
-			font-family: Baloo Bhaina;
+	a {
+		color: white;
+		display: block;
+		line-height: 50px;
+		font-weight: bold;
+		&:hover {
+			text-decoration: none;
+			color: white;
 		}
 	}
 }
-
