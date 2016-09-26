@@ -25,6 +25,7 @@ gem 'sidekiq'
 gem 'braintree', '~> 2.33.1'
 gem 'gon', '~> 5.1.2'
 gem 'redis', '~>3.2'
+gem 'searchkick'
 
 
 
