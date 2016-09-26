@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container top">
 	<%= form_tag("/", method: "post") do %>
 	  <%= label_tag(:min, "Min:") %>
 	  <%= number_field_tag 'min', nil, min: 1, id: "minPrice" %>
@@ -9,13 +9,13 @@
 
 	<%= link_to "Create new listing", new_listing_path, class: "btn btn-default create-btn" if signed_in? %>
 	<% if @listings.present? %>
-		<div class="listing">
-			<div class="row">
+		<div class="listings">
+			<div class="listing__row">
 				<% @listings.each_slice(3).each do |lists| %>
 					<% lists.each do |list| %>
 						
 					
-					<div class="col-md-3 col-md-offset-1 listing-photo-frame">
+					<div class="listings__item">
 						<%= link_to list do  %>
 							<%= image_tag list.listing_images[0].url(:medium) if list.listing_images.any? %>
 						<% end %> 
@@ -26,7 +26,7 @@
 					<% end %>
 				<% end %>
 			</div>
-	</div>
+		</div>
 	<% end %>
 
 </div>

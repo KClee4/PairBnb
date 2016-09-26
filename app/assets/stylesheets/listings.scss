@@ -11,7 +11,52 @@
 	margin-top: 20px;
 	margin-bottom: 20px !important;
 }
+/************************* SHOW *******************************/
 .listing-photo-frame {
 	overflow: hidden;
 	margin: 0;
+}
+.listing {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 50px;
+	.btn {
+		margin-left: 15px;
+		margin-top: 20px;
+	}
+}
+.listing__image {
+	width: 35%;
+}
+.listing__contents {
+	width: 65%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+
+}
+.listing__title {
+	h1 {
+		margin: 0 !important;
+	}
+}
+.listing--bold {
+	font-weight: bold;
+}
+/************************* END *******************************/
+
+
+/************************* INDEX *******************************/
+
+.listings__row {
+	display: flex;
+	justify-content: center;
+}
+.listings__item {
+	display: flex;
+	flex-direction: column;
+	img {
+		height: 200px;
+		width: 330px;
+	}
 }

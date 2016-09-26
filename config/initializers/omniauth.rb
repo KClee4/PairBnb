@@ -5,3 +5,4 @@ end
 OmniAuth.config.on_failure = Proc.new { |env|
  Rack::Response.new(['302 Moved'], 302, 'Location' => "/").finish
 }
+ 

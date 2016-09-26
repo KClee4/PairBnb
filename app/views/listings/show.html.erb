@@ -1,28 +1,32 @@
 <div class="container">
-	<h1><%= @listing.title %></h1>
-	<% if @listing.listing_images.any? %>
-	<% @listing.listing_images.each do |img| %>
-	<%= image_tag img.url(:medium) %>
-	<% end %> 
-	<% end %>
-	<p><%= @listing.description %></p>
-	<p>RM <%= @listing.price %> per day</p>
-	<p>Tags: <%= @listing.tag_list.join(", ") %></p>
-	<p>Host by: <%= @listing.user.firstname + " " + @listing.user.lastname %>
-		<div class="round">
-	  <%= link_to @listing.user, class: "current-user" do %>
-	    <%= image_tag @listing.user.profile_image_url(:thumb), title: "Profile" %>
-	    <% end %> 
-	    </div>
-	</p>
 	
-	<%= link_to "Back", listings_path, class: "btn btn-default" %>
-	<% if signed_in? && @listing.user == current_user %>
-		<%= link_to "Edit", edit_listing_path(@listing), class: "btn btn-info"  %>
-		<%= link_to "Delete", @listing, method: "delete", data: { confirm: "Are you sure you want to delete????" }, class: "btn btn-danger" %>
-	<% elsif signed_in? %>
-	<div class="reserve-btn-d">
-		<%= link_to "Reserve!", {:controller => "reservations", :action => "new", :listing_id => @listing}, class: "reserve-btn btn btn-info", remote: true  %>
-		<% end %> 
+	<div class="listing">
+		<div class="listing__image"><%= image_tag @listing.listing_images[0].url(:medium) %></div>
+		
+		<div class="listing__contents">
+			<div class="listing__title"><h1><%= @listing.title %></h1></div>
+			<div class="listing__description">
+				<p class="listing--bold">About this listing</p>
+				<p><%= @listing.description %></p>
+			</div>
+			<p>RM <%= @listing.price %> per day</p>
+			<p>Tags: <%= @listing.tag_list.join(", ") %></p>
+			<p>Host by: <%= @listing.user.firstname + " " + @listing.user.lastname %></p>
+
+			<div class="round">
+			  <%= link_to @listing.user, class: "current-user" do %>
+		    <%= image_tag @listing.user.profile_image_url(:thumb), title: "Profile" %>
+		    <% end %> 
+	    </div>
+		</div>
+		<%= link_to "Back", listings_path, class: "btn btn-default" %>
+		<% if signed_in? && @listing.user == current_user %>
+			<%= link_to "Edit", edit_listing_path(@listing), class: "btn btn-info"  %>
+			<%= link_to "Delete", @listing, method: "delete", data: { confirm: "Are you sure you want to delete????" }, class: "btn btn-danger" %>
+		<% elsif signed_in? %>
+		<div class="reserve-btn-d">
+			<%= link_to "Reserve!", {:controller => "reservations", :action => "new", :listing_id => @listing}, class: "reserve-btn btn btn-info", remote: true  %>
+			<% end %> 
+		</div>
 	</div>
 </div>
