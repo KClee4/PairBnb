@@ -1,4 +1,5 @@
 class Listing < ActiveRecord::Base
+  searchkick
   belongs_to :user
   has_many :reservations, dependent: :destroy
   acts_as_taggable
@@ -15,5 +16,9 @@ class Listing < ActiveRecord::Base
   	self.where(con)
   end
 
-
+  def search_data
+    attributes.merge(
+      tags_name: tags.map(&:name)
+    )
+  end
 end
