@@ -8,7 +8,7 @@ class Listing < ActiveRecord::Base
   scope :min_price, ->(min) { where('price >= ?', min)}
   scope :max_price, ->(max) { where('price <= ?', max)}
 
-  validates :title, :description, :price, presence: true
+  validates :title, :description, :price, :listing_images, presence: true
   validates :description, :length => { minimum: 10 }
 
   def self.filter(con)
