@@ -32,6 +32,29 @@ $purple: #9966ff;
 	
 	border-radius: 0;
 }
+.my-navbar--reverse {
+	border-bottom: 1px solid grey;
+	box-shadow: 0 0 5px grey;
+	a, li, p {
+		color: rgba(0,0,0,0.68) !important;
+	}
+	.my-navbar--left {
+		a {
+			&:hover {
+				background-color: rgba(0,0,0,0.78);
+				color: white !important;
+
+			}
+		}
+	}
+	.my-navbar--signup {
+		li {
+			a {
+				color: white !important;
+			}
+		}
+	}
+}
 .my-navbar__container {
 	z-index: 2;
 	display: flex;
@@ -53,7 +76,7 @@ $purple: #9966ff;
 		}
 	}
 	a, li, p {
-		color: white !important;
+		color: white;
 		font-family: Lato;
 		font-weight: 700;
 	}
@@ -68,8 +91,15 @@ $purple: #9966ff;
 	font-family: Open Sans;
 	line-height: 80px;
 	font-weight: 700;
-	&:hover {
+	&:hover, &:active, &:visited {
 		text-decoration: none;
+	}
+}
+.my-navbar__listing {
+	a {
+		&:active, &:visited {
+			text-decoration: none;
+		}
 	}
 }
 .my-navbar--left {
@@ -87,8 +117,8 @@ $purple: #9966ff;
 			text-decoration: none;
 			background-color: white;
 			color: rgba(0, 0, 0, 0.68) !important;
-
 		}
+
 	}
 }
 .my-navbar--right {
