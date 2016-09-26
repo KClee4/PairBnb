@@ -13,6 +13,10 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
+  resources :reservations, only: [:show] do
+    resources :transactions, only: [:new, :create]
+  end
+
   resources :reservations, only: [:index]
  
   resources :users, only: [:show, :edit, :update]

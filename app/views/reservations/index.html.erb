@@ -17,11 +17,14 @@
 					<div class="col-md-3">
 						<%= res.begin_date %>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-2">
 						<%= res.end_date %>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-2">
 						<%= res.guest_count %>
+					</div>
+					<div class="col-md-2">
+						<%= res.paid? ? "Paid" : "Not Paid" %>
 					</div>
 				<% end %> 
 			<% end %>

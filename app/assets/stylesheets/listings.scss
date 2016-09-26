@@ -11,6 +11,7 @@
 	margin-top: 20px;
 	margin-bottom: 20px !important;
 }
+/************************* SHOW *******************************/
 .listing-photo-frame {
 	overflow: hidden;
 	margin: 0;
@@ -41,4 +42,21 @@
 }
 .listing--bold {
 	font-weight: bold;
+}
+/************************* END *******************************/
+
+
+/************************* INDEX *******************************/
+
+.listings__row {
+	display: flex;
+	justify-content: center;
+}
+.listings__item {
+	display: flex;
+	flex-direction: column;
+	img {
+		height: 200px;
+		width: 330px;
+	}
 }
