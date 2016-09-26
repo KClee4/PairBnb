@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  resources :transactions, only: [:new, :create]
   resources :listings
   resources :listings, only: [:show] do
     resources :reservations, only: [:new, :create]

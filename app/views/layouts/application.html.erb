@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= include_gon %>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"%>
   <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Baloo+Bhaina|Open+Sans" %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
+  <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
   <title>PairBnb | The greastest website ever....</title>
 
 </head>

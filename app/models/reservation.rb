@@ -7,6 +7,14 @@ class Reservation < ActiveRecord::Base
   validate :available_date
   validate :selected_date
 
+  def total_nights(begin_date, end_date)
+    @total_nights = (end_date - begin_date)
+  end
+
+  def total_price(price_per_night, total_nights)
+    @total_price = (total_nights * price_per_night)
+  end
+
   private
 
   def available_date

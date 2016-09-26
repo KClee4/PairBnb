@@ -22,6 +22,8 @@ gem "mini_magick"
 gem 'jquery-ui-rails'
 gem 'responders', '~> 2.0'
 gem 'sidekiq'
+gem "braintree", "~> 2.66.0"
+gem 'gon', '~> 5.1.2'
 
 group :development, :test do
   gem 'byebug'
