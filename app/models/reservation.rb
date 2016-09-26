@@ -4,8 +4,20 @@ class Reservation < ActiveRecord::Base
 
   validates_presence_of :begin_date, :end_date, :guest_count
   validates_numericality_of :guest_count, :less_than_or_equal_to => 15
-  validate :available_date
-  validate :selected_date
+  validate :available_date, on: :create
+  validate :selected_date, on: :create
+
+  def full_price
+    listing.price * ((begin_date..end_date).count - 1)
+  end
+
+  def pay!
+    update(payment: true)
+  end
+
+  def paid?
+    payment == true
+  end
 
   def total_nights(begin_date, end_date)
     @total_nights = (end_date - begin_date)
