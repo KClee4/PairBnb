@@ -52,6 +52,10 @@ class ListingsController < ApplicationController
     redirect_to listings_path
   end
 
+  def search
+    @listings = Listings.search(params[:q])
+  end
+
   private
 
   def listing_params

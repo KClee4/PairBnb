@@ -29,6 +29,12 @@
 	color: white;
 	text-align: center;
 	top: 40px;
+	a {
+  color: white;
+  &:hover {
+      color: white;
+  }
+ }
 }
 .main-area__title {
 	font-family: Myriad;
