@@ -1,5 +1,5 @@
 class Listing < ActiveRecord::Base
-  searchkick
+  searchkick word_start: [:title], searchable: [:title], autocomplete: [:title]
   belongs_to :user
   has_many :reservations, dependent: :destroy
   acts_as_taggable
@@ -15,6 +15,8 @@ class Listing < ActiveRecord::Base
   def self.filter(con)
   	self.where(con)
   end
+
+  
 
   def search_data
     attributes.merge(

@@ -3,15 +3,8 @@ class ListingsController < ApplicationController
   before_action :find_listing, only: [:show, :edit, :update, :destroy]
 
   def index
-
-    if filter_params.any?
-      if filter_params[:min].present? && filter_params[:max].present?
-        @listings = Listing.price_range(filter_params[:min],filter_params[:max])
-      elsif filter_params[:min].present? && !filter_params[:max].present?
-        @listings = Listing.min_price(filter_params[:min])
-      elsif !filter_params[:min].present? && filter_params[:max].present?
-        @listings = Listing.max_price(filter_params[:max])
-      end
+    if params[:search].present?
+      @listings = Listing.search params[:search], fields: [:title], match: :word_start, operator: "or"
     else
       @listings = Listing.all
     end
@@ -52,8 +45,15 @@ class ListingsController < ApplicationController
     redirect_to listings_path
   end
 
-  def search
-    @listings = Listings.search(params[:q])
+  def autocomplete
+    byebug
+    render json: Listing.search(params[:search], {
+      fields: [:title],
+      limit: 10,
+      load: false,
+      misspellings: {below: 5}
+    }).map(&:title)
+
   end
 
   private
