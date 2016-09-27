@@ -1,5 +1,5 @@
 class Listing < ActiveRecord::Base
-  searchkick word_start: [:title], searchable: [:title], autocomplete: [:title]
+  searchkick match: :word_start, autocomplete: [:title]
   belongs_to :user
   has_many :reservations, dependent: :destroy
   acts_as_taggable

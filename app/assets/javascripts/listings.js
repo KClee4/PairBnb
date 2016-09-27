@@ -2,12 +2,12 @@
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(function() {
-	$(".search__form input[type=text").on("keyup", function() {
-		$(".search__form input[type=text").autocomplete({
+// $(function() {
+// 	$(".search__form input[type=text").on("keyup", function() {
+// 		$(".search__form input[type=text").autocomplete({
 			
-			source: $(".search__form input[type=text").data('autocomplete-source')			
-		});
-	});
+// 			source: $(".search__form input[type=text").data('autocomplete-source')			
+// 		});
+// 	});
 
-});
+// });

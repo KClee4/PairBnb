@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
-  get "/listings/autocomplete", to: "listings#autocomplete", as: "autocomplete"
-
   resources :transactions, only: [:new, :create]
-  resources :listings
+  resources :listings do
+    collection do
+      get :autocomplete
+    end
+  end
   resources :listings, only: [:show] do
     resources :reservations, only: [:new, :create]
   end

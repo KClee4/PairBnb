@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
 
   def index
     if params[:search].present?
-      @listings = Listing.search params[:search], fields: [:title], match: :word_start, operator: "or"
+      @listings = Listing.search params[:search], fields: [:title], match: :word_start
     else
       @listings = Listing.all
     end
@@ -46,13 +46,10 @@ class ListingsController < ApplicationController
   end
 
   def autocomplete
-    byebug
-    render json: Listing.search(params[:search], {
-      fields: [:title],
-      limit: 10,
-      load: false,
-      misspellings: {below: 5}
-    }).map(&:title)
+    render json: Listing.search(params[:query], 
+      {fields: [:title],
+        limit: 10, match: :word_start,
+        misspellings: {below: 5}}).map {|t| {"title": t.title}}
 
   end
 
