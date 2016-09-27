@@ -1,34 +1,33 @@
 <div class="container">
 	<div class="reservation">
-		<div class="row">
-			<div class="col-md-3">Title</div>
-			<div class="col-md-3">Start date</div>
-			<div class="col-md-3">End date</div>
-			<div class="col-md-3">Guest count</div>
-		</div>
+		<table class="table">
+			<thead>
+				<tr class="success">
+					<th>Title</th>
+					<th>Start date</th>
+					<th>End date</th>
+					<th>Guest count</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+		
+		
 		<% if @reservations.any? %>
-			<div class="row">
 
 			<% @reservations.each do |res| %>
 				<%= link_to res.listing do %>
-					<div class="col-md-3">
-						<%= res.listing.title %>
-					</div>
-					<div class="col-md-3">
-						<%= res.begin_date %>
-					</div>
-					<div class="col-md-2">
-						<%= res.end_date %>
-					</div>
-					<div class="col-md-2">
-						<%= res.guest_count %>
-					</div>
-					<div class="col-md-2">
-						<%= res.paid? ? "Paid" : "Not Paid" %>
-					</div>
+					<tbody>
+						<tr class="danger">
+							<td><%= res.listing.title %></td>
+							<td><%= res.begin_date %></td>
+							<td><%= res.end_date %></td>
+							<td><%= res.guest_count %></td>
+							<td><%= res.paid? ? "Paid" : "Not Paid" %></td>
+						</tr>
+					</tbody>
 				<% end %> 
+				<% end %>
 			<% end %>
-			</div>
-		<% end %>
+		</table>
 	</div>
 </div>
