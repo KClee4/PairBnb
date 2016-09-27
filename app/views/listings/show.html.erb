@@ -19,7 +19,7 @@
 		    <% end %> 
 	    </div>
 		</div>
-		<%= link_to "Back", listings_path, class: "btn btn-default" %>
+		<%= link_to "Back", listings_path, method: 'get', class: "btn btn-default" %>
 		<% if signed_in? && @listing.user == current_user %>
 			<%= link_to "Edit", edit_listing_path(@listing), class: "btn btn-info"  %>
 			<%= link_to "Delete", @listing, method: "delete", data: { confirm: "Are you sure you want to delete????" }, class: "btn btn-danger" %>
