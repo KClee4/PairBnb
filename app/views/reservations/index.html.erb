@@ -2,7 +2,7 @@
 	<div class="reservation">
 		<table class="table">
 			<thead>
-				<tr class="success">
+				<tr class="info">
 					<th>Title</th>
 					<th>Start date</th>
 					<th>End date</th>
@@ -11,13 +11,12 @@
 				</tr>
 			</thead>
 		
-		
 		<% if @reservations.any? %>
 
 			<% @reservations.each do |res| %>
 				<%= link_to res.listing do %>
 					<tbody>
-						<tr class="danger">
+						<tr class="<%= res.paid? ?  "success" : "danger"  %>">
 							<td><%= res.listing.title %></td>
 							<td><%= res.begin_date %></td>
 							<td><%= res.end_date %></td>
@@ -26,8 +25,8 @@
 						</tr>
 					</tbody>
 				<% end %> 
-				<% end %>
 			<% end %>
+		<% end %>
 		</table>
 	</div>
 </div>
