@@ -11,3 +11,15 @@ div.submit-field {
 		margin-bottom: 15px;
 	}
 }
+.user-profile {
+	display: flex;
+}
+.user-profile__image {
+	width: 30%;
+	display: flex;
+	justify-content: flex-end;
+}
+.user-profile__details {
+	margin-left: 30px;
+	width: 70%;
+}

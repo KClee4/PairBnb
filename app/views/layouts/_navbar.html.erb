@@ -8,7 +8,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
 
       <ul class="my-navbar__listing my-navbar--left">
-        <li><%= link_to "Listing",listings_path %></li>
+        <li><%= link_to "Listing",listings_path, method: 'get' %></li>
         <% if signed_in? %>
           <li><%= link_to "My reservation", reservations_path  %></li>
         <% end %>
