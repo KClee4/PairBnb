@@ -16,6 +16,8 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+//= require bootstrap-typeahead-rails
+//= require books
 $(function() {
 	$('#dateFrom, #dateTo').datepicker({
 	      beforeShow: customRange,

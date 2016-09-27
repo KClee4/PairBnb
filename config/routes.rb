@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+
   resources :transactions, only: [:new, :create]
-  resources :listings
+  resources :listings do
+    collection do
+      get :autocomplete
+    end
+  end
   resources :listings, only: [:show] do
     resources :reservations, only: [:new, :create]
   end
@@ -26,6 +31,10 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   get "/auth/:provider/callback",to: "sessions#create_from_omniauth"
+
+  post "/listings/search", to: "listings#index"
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
