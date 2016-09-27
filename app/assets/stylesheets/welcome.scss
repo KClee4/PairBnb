@@ -65,3 +65,102 @@
 		}
 	}
 }
+
+.container-content {
+	text-align: center;
+	.content-image {
+		
+		img{
+			margin-top: 20px;
+			margin-bottom: 20px;
+			width: 100%;
+		}
+	}
+
+	.world-title{
+		margin-top:80px;
+	}
+
+	.all-image {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		margin-bottom: 100px;
+		color: white;
+		.grey {
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.5);
+			-webkit-transition: all 0.5s; 
+	    transition: all 0.5s;
+			&:hover {
+				background-color: rgba(0,0,0,0.75);
+				h3 {
+					font-size: 40px;
+				}
+			}
+
+		}
+		div {
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			
+			h3 {
+			font-family: Open Sans;
+			font-weight: 800;
+			-webkit-transition: all 0.5s; 
+	    transition: all 0.5s;
+			}
+		}
+
+	.world-image1{
+		background-image: url(tokyo.jpg);
+		background-size: cover;
+		margin-top:60px;
+		width:350px;
+		height: 200px;
+	}
+
+	.world-image2{
+		background-image: url(hongkong.jpg);
+		background-size: cover;
+		margin-top:60px;
+		width:350px;
+		height: 200px
+	}
+
+	.world-image3{
+		background-image: url(malaysia.jpg);
+		background-size: cover;
+		margin-top:60px;
+		width:350px;
+		height: 200px
+	}
+
+	.world-image4{
+		background-image: url(sydney.jpg);
+		background-size: cover;
+		margin-top:60px;
+		width:350px;
+		height: 200px
+	}
+
+	.world-image5{
+		background-image: url(bangkok.jpg);
+		background-size: cover;
+		margin-top:60px;
+		width:350px;
+		height: 200px
+	}
+
+	.world-image6{
+		background-image: url(paris.jpg);
+		background-size: cover;
+		margin-top:60px;
+		width:350px;
+		height: 200px
+	}
+}
+}
