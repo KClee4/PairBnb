@@ -3,7 +3,8 @@
 	<div class="main-area__jumbotron">
 		<h1 class="main-area__title">Welcome to PairBnb</h1>
 		<p class="main-area__description">Book homes from local hosts in 191+ countries and experience a place like you live there.</p>
-		<%= link_to listings_path do %><button class="main-area__cta">ALL LISTINGS</button>
+		<%= link_to listings_path, method: 'get' do %>
+			<button class="main-area__cta">ALL LISTINGS</button>
 		<% end %>
 	</div>
 </div>
