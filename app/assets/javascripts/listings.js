@@ -2,12 +2,16 @@
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
-// $(function() {
-// 	$(".search__form input[type=text").on("keyup", function() {
-// 		$(".search__form input[type=text").autocomplete({
-			
-// 			source: $(".search__form input[type=text").data('autocomplete-source')			
-// 		});
-// 	});
-
-// });
+$(function() {
+	$( "#slider-range" ).slider({
+	  range: true,
+	  min: 100,
+	  max: 2000,
+	  values: [ 75, 300 ],
+	  slide: function( event, ui ) {
+	    $( "#amount" ).val( "RM" + ui.values[ 0 ] + " - RM" + ui.values[ 1 ] );
+	  }
+	});
+	$( "#amount" ).val( "RM" + $( "#slider-range" ).slider( "values", 0 ) +
+	  " - RM" + $( "#slider-range" ).slider( "values", 1 ) );
+});

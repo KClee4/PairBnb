@@ -1,26 +1,40 @@
-<div class="container top">
+<div id="wrapper" class="toggled">
+    <div class="container-fluid">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+              	<li class="sidebar-brand menu-toggle">
+                    <h1>Filter</h1>
+                </li>
+                <li>
+                	<p>
+                		<form>
+	                	  <label for="amount">Price range:</label>
+	                	  <input type="text" id="amount" name="range" readonly style="border:0; color:#f6931f; font-weight:bold;">
+	                	  <input type="submit" name="submit">
+	                	 
+	                	<div id="slider-range"></div>
+	                	</form>
+                	</p>
+                </li>
+                
+            </ul>
+        </div>
+
 	<div class="search">
 		<%= form_tag("/listings/search", {:class => "search__form"}) do %>
 			<%= text_field_tag :search, nil, :placeholder => "Search", class: "typeahead" %>		
 			<%= submit_tag "Search", class: "class" %>
 		<% end %>
 	</div>
-	<%= form_tag("/", method: "post") do %>
-	  <%= label_tag(:min, "Min:") %>
-	  <%= number_field_tag 'min', nil, min: 1, id: "minPrice" %>
-	  <%= label_tag(:max, "Max:") %>
-	  <%= number_field_tag 'max', nil, min: 1, id: "maxPrice"  %>
-	  <%= submit_tag("Search") %>
-	<% end %>
+	<div class="height"></div>
+	<div class="container top">
+		<button class="btn btn-info menu-toggle">Filter</button>
+		<%= link_to "Create new listing", new_listing_path, class: "btn btn-default create-btn" if signed_in? %>
+		<% if @listings.present? %>
+			<div class="listings">
+				<% @listings.each do |list| %>
 
-	<%= link_to "Create new listing", new_listing_path, class: "btn btn-default create-btn" if signed_in? %>
-	<% if @listings.present? %>
-		<div class="listings">
-			<div class="listing__row">
-				<% @listings.each_slice(3).each do |lists| %>
-					<% lists.each do |list| %>
-						
-					
 					<div class="listings__item">
 						<%= link_to list do  %>
 							<%= image_tag list.listing_images[0].url(:medium) if list.listing_images.any? %>
@@ -30,9 +44,9 @@
 					</div>
 							
 					<% end %>
-				<% end %>
+					</div>			
 			</div>
-		</div>
-	<% end %>
+		<% end %>
+	</div>
 
 </div>
