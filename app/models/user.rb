@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
     create! do |u|
       u.firstname = auth_hash["info"]["first_name"]
       u.lastname = auth_hash["info"]["last_name"]
-      u.birthday = auth_hash["extra"]["raw_info"]["birthday"] ? Date.parse(auth_hash["extra"]["raw_info"]["birthday"].gsub(/(\d{2})\/(\d{2})\/(\d{4})/,"#{$3}-#{$1}-#{$2}")) : nil
       u.email = auth_hash["extra"]["raw_info"]["email"]
       u.password = SecureRandom.base64(10)
       u.authentications<<(authentication)
