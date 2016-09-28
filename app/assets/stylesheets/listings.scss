@@ -60,12 +60,12 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: flex-begin;
 }
 .listings__item {
 	display: flex;
 	flex-direction: column;
-	margin-right: auto;
+	margin-left: 37px;
 	img {
 		height: 200px;
 		width: 330px;
