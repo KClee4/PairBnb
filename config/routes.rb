@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  post "/listings/search", to: "listings#search"
+  post "/listings/filter", to: "listings#filter"
+
+
   resources :transactions, only: [:new, :create]
   resources :listings do
     collection do
@@ -32,7 +36,7 @@ Rails.application.routes.draw do
 
   get "/auth/:provider/callback",to: "sessions#create_from_omniauth"
 
-  post "/listings/search", to: "listings#index"
+  
 
 
 

@@ -1,0 +1,7 @@
+$(function() {
+	result = "";
+	<% @listings.each do |list| %>
+		result += '<div class="listings__item"><%= link_to list do  %><%= image_tag(list.listing_images[0].url(:medium)) if list.listing_images.any? %><% end %><%= link_to list.title,list %><%= content_tag(:span, "RM #{list.price}") %></div>';
+	<% end %>
+	$('.listings').html(result);
+});

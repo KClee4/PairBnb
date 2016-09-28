@@ -14,7 +14,14 @@ class Listing < ActiveRecord::Base
   	self.where(con)
   end
 
-  
+  def self.filter_by_range(range = {})
+    min = range.fetch(:min)
+    max = range.fetch(:max)
+
+    if min && max 
+      return price_range(min, max)
+    end
+  end
 
   def search_data
     attributes.merge(

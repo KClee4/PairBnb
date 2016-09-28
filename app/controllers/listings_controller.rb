@@ -3,12 +3,18 @@ class ListingsController < ApplicationController
   before_action :find_listing, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:search].present?
-      @listings = Listing.search params[:search], fields: [:title], match: :word_start
-    else
-      @listings = Listing.all
-    end
+    @listings = Listing.order('created_at DESC')
+  end
 
+  def search
+    @listings = Listing.search params[:search], fields: [:title], match: :word_start
+    
+    render 'index'
+  end
+
+  def filter
+    @listings = Listing.where(id: params[:listings].gsub!("[","").gsub("]","").split(', '))
+    @listings = @listings.filter_by_range(filter_params)
   end
 
   def show

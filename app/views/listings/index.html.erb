@@ -8,11 +8,12 @@
                 </li>
                 <li>
                 	<p>
-                		<form>
+                		<form action="/listings/filter" method="post" data-remote="true">
 	                	  <label for="amount">Price range:</label>
-	                	  <input type="text" id="amount" name="range" readonly style="border:0; color:#f6931f; font-weight:bold;">
-	                	  <input type="submit" name="submit">
-	                	 
+	                	  <input type="text" id="amount" name="range" readonly style="border:0; color:#f6931f; font-weight:bold; background: none">
+	                	  <input type="hidden" name="min" id="min">
+	                	  <input type="hidden" name="max" id="max">
+	                	 	<input type="hidden" name="listings" value="<%= @listings.map(&:id) %>">
 	                	<div id="slider-range"></div>
 	                	</form>
                 	</p>
@@ -22,7 +23,7 @@
         </div>
 
 	<div class="search">
-		<%= form_tag("/listings/search", {:class => "search__form"}) do %>
+		<%= form_tag("/listings/search", class: "search__form") do %>
 			<%= text_field_tag :search, nil, :placeholder => "Search", class: "typeahead" %>		
 			<%= submit_tag "Search", class: "class" %>
 		<% end %>
