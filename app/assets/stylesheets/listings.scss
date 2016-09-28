@@ -240,6 +240,7 @@
     }
 }
 .carousel-inner .item {
-	display: flex !important;
-	justify-content: center !important;
+	img {
+		margin: 0 auto;
+	}
 }
