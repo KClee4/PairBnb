@@ -1,7 +1,7 @@
 <div class="container">
 	
 	<div class="listing">
-		<div class="listing__image"><%= image_tag @listing.listing_images[0].url(:medium) %></div>
+		<div class="listing__image"  data-toggle="modal" data-target=".bs-example-modal-lg"><%= image_tag @listing.listing_images[0].url(:medium) %></div>
 		
 		<div class="listing__contents">
 			<div class="listing__title"><h1><%= @listing.title %></h1></div>
@@ -28,5 +28,34 @@
 			<%= link_to "Reserve!", {:controller => "reservations", :action => "new", :listing_id => @listing}, class: "reserve-btn btn btn-info", remote: true  %>
 			<% end %> 
 		</div>
+	</div>
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				  <!-- Wrapper for slides -->
+				  <div class="carousel-inner">
+				  	<% @listing.listing_images.each_with_index do |img, i| %>
+				  		<% if i == 0 %>
+					  		<div class="item active">
+					  		 <%= image_tag img.url, class: "img-responsive" %>
+					  		 </div>
+				  		<% else %>
+					  		<div class="item">
+					  		 <%= image_tag img.url, class: "img-responsive" %>
+								</div>
+					  		<% end %> 
+				  	<% end %>
+				  </div>
+	  <!-- Controls -->
+	  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+	    <span class="glyphicon glyphicon-chevron-left"></span>
+	  </a>
+	  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+	    <span class="glyphicon glyphicon-chevron-right"></span>
+	  </a>
+	</div>
+	    </div>
+	  </div>
 	</div>
 </div>
