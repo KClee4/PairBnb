@@ -19,7 +19,7 @@
 @import "bootstrap";
 @font-face {
 	font-family: Myriad;
-	src: url("MyriadPro-Regular.otf");
+	src: url(asset-path("MyriadPro-Regular.otf"));
 }
 $purple: #9966ff;
 body {
