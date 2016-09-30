@@ -7,6 +7,53 @@ GIT
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
 
+GIT
+  remote: https://github.com/rspec/rspec-core.git
+  revision: 5875d9f440378f78e0c4b0c20b326730ab2ce924
+  branch: master
+  specs:
+    rspec-core (3.6.0.pre)
+      rspec-support (= 3.6.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-expectations.git
+  revision: 8343affb9b290d494a0793e894a83f77e28eff5c
+  branch: master
+  specs:
+    rspec-expectations (3.6.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.6.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-mocks.git
+  revision: 0c87b91d32f4f827d2c1953935adcfd5468263a5
+  branch: master
+  specs:
+    rspec-mocks (3.6.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.6.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-rails.git
+  revision: 2175c72f42ebd40c946ccc45fe3a2ad0caa8df6f
+  branch: master
+  specs:
+    rspec-rails (3.6.0.pre)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (= 3.6.0.pre)
+      rspec-expectations (= 3.6.0.pre)
+      rspec-mocks (= 3.6.0.pre)
+      rspec-support (= 3.6.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-support.git
+  revision: 357ca45a15819b1b452e50f57f5df197710f7182
+  branch: master
+  specs:
+    rspec-support (3.6.0.pre)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -48,6 +95,7 @@ GEM
       tzinfo (~> 1.1)
     acts-as-taggable-on (4.0.0)
       activerecord (>= 4.0)
+    addressable (2.4.0)
     arel (6.0.3)
     autoprefixer-rails (6.4.1.1)
       execjs
@@ -63,6 +111,13 @@ GEM
       builder (>= 2.0.0)
     builder (3.2.2)
     byebug (9.0.5)
+    capybara (2.9.1)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     clearance (1.14.2)
       bcrypt
       email_validator (~> 1.4)
@@ -77,6 +132,7 @@ GEM
     concurrent-ruby (1.0.2)
     connection_pool (2.2.0)
     debug_inspector (0.0.2)
+    diff-lcs (1.2.5)
     elasticsearch (2.0.0)
       elasticsearch-api (= 2.0.0)
       elasticsearch-transport (= 2.0.0)
@@ -90,6 +146,11 @@ GEM
     erubis (2.7.0)
     excon (0.52.0)
     execjs (2.7.0)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     figaro (1.1.1)
@@ -369,6 +430,8 @@ GEM
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     xml-simple (1.1.5)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -379,9 +442,11 @@ DEPENDENCIES
   bootstrap-typeahead-rails
   braintree (~> 2.33.1)
   byebug
+  capybara
   carrierwave!
   clearance
   coffee-rails (~> 4.1.0)
+  factory_girl_rails
   figaro
   fog
   gon (~> 5.1.2)
@@ -397,6 +462,11 @@ DEPENDENCIES
   rails_12factor
   redis (~> 3.2)
   responders (~> 2.0)
+  rspec-core!
+  rspec-expectations!
+  rspec-mocks!
+  rspec-rails!
+  rspec-support!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   searchkick
